@@ -1,0 +1,36 @@
+package com.company;
+
+import com.sun.deploy.panel.IProperty;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+public class google
+{
+    public static  void main(String[]args) throws InterruptedException {
+        WebDriver driver;
+        System.setProperty("webdriver.chrome.driver","C:\\Program Files\\chromedriver.exe");
+        driver=new ChromeDriver();
+        //driver.get("https://www.google.com");
+        driver.get("https://accounts.google.com");//link of gmail login
+        //driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        //driver.findElement(By.className("nyoS7c UzCXuf EIlDfe")).sendKeys("anjalimasal0718@gmail.com");
+        driver.findElement(By.xpath("//*[@id='identifierId']")).sendKeys("anjalimasal0718@gmail.com");//enter username
+        driver.findElement(By.xpath("//*[@id='identifierNext']/div/button")).click();//click on next button
+        driver.findElement(By.xpath("//*[@id='password']")).sendKeys("9588624797");//enter password
+        driver.findElement(By.xpath("//*[@id='passwordNext'']/div/button/span")).click();//click on enter
+        driver.findElement(By.xpath("//div[@class='T-I T-I-KE L3']")).click();//click on compose mail 
+        driver.findElement(By.xpath("//*[@id=':qp']")).sendKeys("anjalimasal96@gmail.com");//enter the B's email adress
+        driver.findElement(By.className("aoT")).sendKeys("Incubyte");//write subject line
+       driver.findElement(By.xpath("//*[@id=':rq']")).sendKeys("Automation QA test for Incubyte"); //write the body
+       driver.findElement(By.xpath("//*[@id=':ox']")).click();//click on send button
+        
+        Thread.sleep(3000);
+        //driver.switchTo().alert().sendKeys("this is for the understanding");
+        driver.quit();
+        
+    }
+}
